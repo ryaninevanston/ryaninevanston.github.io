@@ -157,7 +157,7 @@
       <img id="photo" alt="Member of Congress">
       <div class="photo-fallback" id="photoFallback">
         <span class="initials" id="photoInitials"></span>
-        <span class="note">No photo available yet</span>
+        <span class="note">No photo available yet (tell Ryan, please!)</span>
       </div>
     </div>
     <p class="prompt" id="promptText">Who is this?</p>
@@ -168,16 +168,16 @@
     <p class="verdict" id="verdict"></p>
     <p class="meta" id="meta"></p>
     <div><span class="chip" id="partyChip"></span></div>
-    <button class="btn primary" id="nextBtn">Next card →</button>
+    <button class="btn primary" id="nextBtn">Next face →</button>
   </div>
 </div>
 
 <div class="panel done" id="doneScreen" hidden>
-  <h2>Chunk mastered 🎉</h2>
+  <h2>Mastered!</h2>
   <p id="doneStats"></p>
   <div class="done-actions">
-    <button class="btn primary" id="typingModeBtn">Switch to typing mode</button>
-    <button class="btn" id="addMoreBtn">Add more</button>
+    <button class="btn primary" id="typingModeBtn">Switch to write-in mode</button>
+    <button class="btn" id="addMoreBtn">Go back</button>
   </div>
 </div>
 
@@ -680,8 +680,8 @@ function showDone(){
   quizWrap.hidden = true; doneScreen.hidden = false;
   const names = [...selected].map(labelFor).sort().join(', ');
   el('doneStats').textContent = typingMode
-    ? `Every card in ${names} has reached box 5 in typing mode too.`
-    : `Every card in ${names} has reached box 5. Try typing mode for a harder review, or add more categories to keep going.`;
+    ? `You've mastered "${names}"!`
+    : `You might have mastered "${names}" in multiple choice, but you should now try in write-in mode! (Or go back.)`;
   el('typingModeBtn').hidden = typingMode;
 }
 
